@@ -2,10 +2,10 @@ import random
 from tkinter import *
 from tkinter import ttk
 
-CPU = 0
-PLAYER = 0
 playernum = 0
 number = 0
+CPU = 0
+PLAYER = 0
 i = 0
 runda = 0
 
@@ -145,32 +145,26 @@ while i < runda:
     printdetails2(number)
     winner(number, playernum)
     sammanlagdvinnare()
-
 """
 root = Tk()
+ja = 0
 
 
-#här har vi hela nya fönstret med knappar
 def createNewWindow():
     newWindow = Toplevel(root)
     root.withdraw()
     newWindow.title("STEN SAX PÅSE")
+
     sten = ttk.Button(newWindow, text="sten", command=datorvalsten).grid(column=0, row=1)
-    sax = ttk.Button(newWindow, text="sax", command=datorvalsax).grid(column=1, row=1)
-
-    w = ttk.Label(newWindow, text="CPU").grid(column=0, row=2)
-    v = ttk.Label(newWindow, text="PLAYER").grid(column=2, row=2)
-
+    sax = ttk.Button(newWindow, text="sax", command=datorvalsax()).grid(column=1, row=1)
     pase = ttk.Button(newWindow, text="påse", command=datorvalpase).grid(column=2, row=1)
-    pase = ttk.Button(newWindow, text="sluta spela", command=root.destroy).grid(column=1, row=4)
-    w = ttk.Label(newWindow, text=str(CPU)).grid(column=0, row=3)
-    v = ttk.Label(newWindow, text=str(PLAYER)).grid(column=2, row=3)
+    pase = ttk.Button(newWindow, text="sluta spela", command=root.destroy).grid(column=1, row=3)
+
 
 def skapanyram():
     global frm
     frm = ttk.Frame(root, padding=10)
     frm.grid()
-
 
 
 def villduspel():
@@ -180,68 +174,39 @@ def villduspel():
 
 
 def datorvalsten():
-    global CPU
-    global PLAYER
     randnum()
     stensaxpase(number)
     if number == 0:
         print("lika")
     elif number == 1:
         print("sten vinner mot sax")
-        PLAYER += 1
     else:
         print("sten förlorar mot påse")
-        CPU += 1
-
-
+    print(word)
 
 
 def datorvalsax():
-    global PLAYER
-    global CPU
     randnum()
     stensaxpase(number)
     if number == 0:
-        print("sax fölorar mot sten")
-        CPU += 1
+        print("sax fölorar")
     elif number == 1:
         print("lika")
     else:
         print("sax vinner mot påse")
-        PLAYER += 1
-
+    print(word)
 
 
 def datorvalpase():
-    global CPU
-    global PLAYER
     randnum()
     stensaxpase(number)
     if number == 0:
         print("påse vinner mot sten")
-        PLAYER += 1
     elif number == 1:
         print("sax vinner mot påse")
-        CPU += 1
     else:
         print("lika")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print(word)
 
 
 # main
